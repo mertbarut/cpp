@@ -5,18 +5,18 @@
 #                                                     +:+ +:+         +:+      #
 #    By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2021/11/06 17:34:05 by mbarut            #+#    #+#              #
-#    Updated: 2021/11/07 22:42:10 by mbarut           ###   ########.fr        #
+#    Created: 2021/11/07 17:52:37 by mbarut            #+#    #+#              #
+#    Updated: 2021/11/07 22:42:37 by mbarut           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME=bsp
+NAME=diamondtrap
 
-SRC=main.cpp Fixed.cpp Point.cpp bsp.cpp
+SRC=ClapTrap.cpp ScavTrap.cpp FragTrap.cpp DiamondTrap.cpp main.cpp
 
-CC=c++
+CC=clang++
 
-CFLAGS= -Wall -Werror -Wextra -o
+CFLAGS= -Wall -Werror -Wextra -Wshadow -Wno-shadow -o
 
 all: $(NAME)
 
