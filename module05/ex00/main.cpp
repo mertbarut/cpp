@@ -6,7 +6,7 @@
 /*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/06 17:34:02 by mbarut            #+#    #+#             */
-/*   Updated: 2021/11/11 14:04:15 by mbarut           ###   ########.fr       */
+/*   Updated: 2021/11/11 18:50:03 by mbarut           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,16 @@
 int main( void )
 {
 	Bureaucrat b0000("Johnson Johnson", 42);
-	Bureaucrat b0001("Johnson Bohnson", 99);
+	Bureaucrat b0001("Johnson Excepson", 151);
+	Bureaucrat b0002("Johnson atLowerlimitson", 150);
+	Bureaucrat b0003("Johnson atHigherlimitson", 1);
 
 	std::cout << b0000 << std::endl;
-
+	--b0002;
+	++b0003;
+	
+	std::cout << b0002 << std::endl;
+	std::cout << b0003 << std::endl;
+	
 	return (0);
 }

@@ -15,6 +15,7 @@
 
 #include <string>
 #include <iostream>
+#include <exception>
 
 class Bureaucrat {
 
@@ -33,11 +34,33 @@ public:
 
 	Bureaucrat&	operator++	() ;
 	Bureaucrat&	operator--	() ;
-	Bureaucrat	operator++	( int );
-	Bureaucrat	operator--	( int );
 
 	std::string		getName(void) const;
 	int				getGrade(void) const;
+
+	class GradeTooHighException : public std::exception
+	{
+
+	public:
+
+		const char * what () const throw ()
+		{
+			return ("'GradeTooHighException': grade must be or stay as an integer between 0 and 151");
+		}
+
+	};
+
+	class GradeTooLowException : public std::exception
+	{
+
+	public:
+
+		const char * what () const throw ()
+		{
+			return ("'GradeTooLowException': grade must be or stay as an integer between 0 and 151");
+		}
+
+	};
 
 };
 
