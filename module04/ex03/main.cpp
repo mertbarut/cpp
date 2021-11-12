@@ -6,7 +6,7 @@
 /*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/09 15:57:08 by mbarut            #+#    #+#             */
-/*   Updated: 2021/11/09 21:51:49 by mbarut           ###   ########.fr       */
+/*   Updated: 2021/11/10 03:23:18 by mbarut           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int main(void)
 	IMateriaSource* src = new MateriaSource();
 	src->learnMateria(new Ice());
 	src->learnMateria(new Cure());
-	
+
 	ICharacter* me = new Character("me");
 
 	AMateria* tmp;

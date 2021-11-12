@@ -6,7 +6,7 @@
 /*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/12 12:13:37 by mbarut            #+#    #+#             */
-/*   Updated: 2021/11/12 13:36:36 by mbarut           ###   ########.fr       */
+/*   Updated: 2021/11/12 14:13:31 by mbarut           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,6 @@ public:
 	Form( const Form &obj );
 	Form( std::string name, int required_grade_sign, int required_grade_exec );
 	Form& operator= ( const Form &obj );
-
-	Form&	operator++	() ;
-	Form&	operator--	() ;
 
 	std::string		getName(void) const;
 	bool			getSignedStatus(void) const;
