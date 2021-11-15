@@ -6,7 +6,7 @@
 /*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/01 12:57:03 by mbarut            #+#    #+#             */
-/*   Updated: 2021/11/02 18:36:57 by mbarut           ###   ########.fr       */
+/*   Updated: 2021/11/15 18:12:41 by mbarut           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,19 @@ void	Account::_displayTimestamp( void )
 	t = std::time(0);
 	now = std::localtime(&t);
 	std::cout << "[" << (now->tm_year + 1900) << (now->tm_mon + 1) << (now->tm_mday) << "_";
-	std::cout << (now->tm_hour) << (now->tm_min) << (now->tm_sec) << "] ";
+	if (now->tm_hour > 9)
+		std::cout << (now->tm_hour);
+	else
+		std::cout << "0" << (now->tm_hour);
+	if (now->tm_min > 9)
+		std::cout << (now->tm_min);
+	else
+		std::cout << "0" << (now->tm_min);
+	if (now->tm_sec > 9)
+		std::cout << (now->tm_sec);
+	else
+		std::cout << "0" << (now->tm_sec);
+	std::cout << "] ";
 }
 
 void	Account::makeDeposit( int deposit )

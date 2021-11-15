@@ -6,13 +6,13 @@
 #    By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/28 21:25:54 by mbarut            #+#    #+#              #
-#    Updated: 2021/11/04 19:50:06 by mbarut           ###   ########.fr        #
+#    Updated: 2021/11/15 17:16:15 by mbarut           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME=phonebook
 
-SRC=Phonebook.cpp
+SRC=Phonebook.cpp Contact.cpp main.cpp
 
 CC=clang++
 

@@ -6,33 +6,29 @@
 /*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/29 13:18:33 by mbarut            #+#    #+#             */
-/*   Updated: 2021/11/03 13:40:54 by mbarut           ###   ########.fr       */
+/*   Updated: 2021/11/15 17:50:31 by mbarut           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include <string>
+#ifndef PHONEBOOK_H
+# define PHONEBOOK_H
 
-#ifndef PHONEBOOKCLASS_H
-# define PHONEBOOKCLASS_H
-
-class Contact {
-	public:
-		int				index;
-		std::string		first_name;
-		std::string		last_name;
-		std::string		nickname;
-		std::string		phone;
-		std::string		secret;
-		Contact(void);
-		~Contact(void);
-};
+# include "Contact.hpp"
+# include <iostream>
+# include <string>
 
 class Phonebook {
+
+	private:
+
+		Contact	_contact[8];
+
 	public:
-		Contact	contact[8];
+
 		Phonebook(void);
 		~Phonebook(void);
+		Contact *getContact(int index);
+
 };
 
 #endif
