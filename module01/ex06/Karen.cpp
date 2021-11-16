@@ -6,7 +6,7 @@
 /*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/04 17:06:16 by mbarut            #+#    #+#             */
-/*   Updated: 2021/11/04 19:28:23 by mbarut           ###   ########.fr       */
+/*   Updated: 2021/11/16 13:57:34 by mbarut           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,40 +16,41 @@ void Karen::complain( std::string level )
 {	
 	f_ptr		f_ptrs[4] = {&Karen::debug, &Karen::info, &Karen::warning, &Karen::error};
 	std::string	levels[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
-	int flag_valid = 0;
 
-	for (int i = 0; i < 4; i++)
+	for (int i = 0; i < 5; i++)
 	{
-		if (level == levels[i])
+		if (level == levels[i] || i == 4)
 		{
-			flag_valid = 1;
 			switch (i)
 			{
 			case 0:
 			{
-				std::cout << "[ " << levels[0] << " ]\n";
+				std::cout << "[ " << levels[0] << " ]" << std::endl;
 				(this->*f_ptrs[0])();
 			}
 			case 1:
 			{
-				std::cout << "[ " << levels[1] << " ]\n";
+				std::cout << "[ " << levels[1] << " ]" << std::endl;
 				(this->*f_ptrs[1])();
 			}
 			case 2:
 			{
-				std::cout << "[ " << levels[2] << " ]\n";
+				std::cout << "[ " << levels[2] << " ]" << std::endl;
 				(this->*f_ptrs[2])();
 			}
 			case 3:
 			{
-				std::cout << "[ " << levels[3] << " ]\n";
+				std::cout << "[ " << levels[3] << " ]" << std::endl;
 				(this->*f_ptrs[3])();
+				return ;
+			}
+			default:
+			{
+				std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
 			}
 			}
 		}
 	}
-	if (!flag_valid)
-		std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
 }
 
 void Karen::debug( void )
@@ -72,5 +73,5 @@ void Karen::error( void )
 	std::cout << "This is unacceptable, I want to speak to the manager now." << std::endl;
 }
 
-Karen::Karen(void) {};
-Karen::~Karen(void) {};
+Karen::Karen(void) { };
+Karen::~Karen(void) { };

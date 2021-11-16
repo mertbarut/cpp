@@ -6,29 +6,45 @@
 /*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 20:14:11 by mbarut            #+#    #+#             */
-/*   Updated: 2021/11/03 23:20:20 by mbarut           ###   ########.fr       */
+/*   Updated: 2021/11/16 13:15:20 by mbarut           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "HumanB.hpp"
+#include "Weapon.hpp"
 
 void	HumanB::attack(void)
 {
-	std::cout << HumanB::name << " attacks with his " << HumanB::wp->getType() << std::endl;
+	std::cout << this->getName() << " attacks with his " << this->getWeapon()->getType() << std::endl;
 }
 
 void	HumanB::setWeapon(Weapon& wp)
 {
-	HumanB::wp = &wp;
-	std::cout << HumanB::name << " has equipped " << HumanB::wp->getType() << std::endl;
+	this->wp = &wp;
+	std::cout << this->getName() << " has equipped " << this->getWeapon()->getType() << std::endl;
 }
 
-HumanB::HumanB( std::string name ): name(name)
+Weapon *HumanB::getWeapon( void )
 {
-	std::cout << name << " has entered the scene" << std::endl;
+	return this->wp;
+}
+
+HumanB::HumanB( std::string name ): _name(name)
+{
+	std::cout << this->getName() << " has entered the scene" << std::endl;
 }
 
 HumanB::~HumanB( void )
 {
-	std::cout << HumanB::name << " has left the scene" << std::endl;
+	std::cout << this->getName() << " has left the scene" << std::endl;
+}
+
+void	HumanB::setName(std::string name)
+{
+	this->_name = name;
+}
+
+std::string HumanB::getName( void )
+{
+	return this->_name;
 }

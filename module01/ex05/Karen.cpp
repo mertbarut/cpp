@@ -6,7 +6,7 @@
 /*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/04 17:06:16 by mbarut            #+#    #+#             */
-/*   Updated: 2021/11/04 19:11:17 by mbarut           ###   ########.fr       */
+/*   Updated: 2021/11/16 13:37:10 by mbarut           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,5 +47,5 @@ void Karen::error( void )
 	std::cout << "This is unacceptable, I want to speak to the manager now." << std::endl;
 }
 
-Karen::Karen(void) {};
-Karen::~Karen(void) {};
+Karen::Karen(void) { std::cout << "A wild stack-allocated Karen has appeared!" << std::endl; };
+Karen::~Karen(void) { std::cout << "A Karen has disappeared!" << std::endl; };

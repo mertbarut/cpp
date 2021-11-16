@@ -6,7 +6,7 @@
 #    By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/04 13:31:33 by mbarut            #+#    #+#              #
-#    Updated: 2021/11/04 13:32:26 by mbarut           ###   ########.fr        #
+#    Updated: 2021/11/16 13:24:43 by mbarut           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ $(NAME):
 	$(CC) $(SRC) $(CFLAGS) $(NAME)
 
 clean:
-	@rm -f ./*.o
+	@rm -f ./*.o ./*.replace
 
 fclean: clean
 	@rm -f $(NAME)

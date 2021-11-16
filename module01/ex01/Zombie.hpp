@@ -6,29 +6,31 @@
 /*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 13:25:40 by mbarut            #+#    #+#             */
-/*   Updated: 2021/11/03 16:08:26 by mbarut           ###   ########.fr       */
+/*   Updated: 2021/11/16 12:30:24 by mbarut           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#ifndef ZOMBIE_H
+# define ZOMBIE_H
 
 #include <string>
 #include <iostream>
 #include <new>
 
-#ifndef __ZOMBIE_H__
-# define __ZOMBIE_H__
-
 class Zombie {
 
 public:
 
-	void	setName( std::string name );
-	void	announce( void );
 	Zombie( void );
 	~Zombie( void );
+	std::string getName( void );
+	void	setName( std::string name );
+	Zombie( std::string name );
+	void	announce( void );
 
 private:
 
-	std::string name = "name";
+	std::string _name;
 
 };
 

@@ -6,15 +6,15 @@
 /*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/04 17:06:14 by mbarut            #+#    #+#             */
-/*   Updated: 2021/11/04 18:53:23 by mbarut           ###   ########.fr       */
+/*   Updated: 2021/11/16 13:32:07 by mbarut           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef KAREN_H
+# define KAREN_H
+
 #include <iostream>
 #include <string>
-
-#ifndef __KAREN_H__
-# define __KAREN_H__
 
 class Karen {
 

@@ -6,7 +6,7 @@
 /*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/04 17:06:11 by mbarut            #+#    #+#             */
-/*   Updated: 2021/11/04 19:10:58 by mbarut           ###   ########.fr       */
+/*   Updated: 2021/11/16 13:36:02 by mbarut           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,11 @@ int main(void)
 {
 	Karen karen00;
 	
-	karen00.complain("INFO");
+	//karen00.complain("ERROR");
+	//karen00.complain("INFO");
+	//karen00.complain("WARNING");
+	karen00.complain("ERROR");
+	karen00.complain("NULL");
 	
 	return (0);
 }

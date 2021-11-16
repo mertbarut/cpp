@@ -6,7 +6,7 @@
 /*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/03 17:20:23 by mbarut            #+#    #+#             */
-/*   Updated: 2021/11/03 17:30:32 by mbarut           ###   ########.fr       */
+/*   Updated: 2021/11/16 12:47:57 by mbarut           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,9 @@ int main(void)
 
 	std::string *stringPTR = &str;
 	std::string& stringREF = str;
+
+	std::cout << stringPTR << std::endl;
+	std::cout << &stringREF << std::endl;
 
 	std::cout << *stringPTR << std::endl;
 	std::cout << stringREF << std::endl;
