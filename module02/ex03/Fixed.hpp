@@ -6,21 +6,21 @@
 /*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/06 17:34:00 by mbarut            #+#    #+#             */
-/*   Updated: 2021/11/07 14:38:01 by mbarut           ###   ########.fr       */
+/*   Updated: 2021/11/17 14:05:07 by mbarut           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
+#ifndef FIXED_H
+# define FIXED_H
 
-#ifndef __FIXED_H__
-# define __FIXED_H__
+#include <iostream>
 
 class Fixed {
 
 private:
 
-	int		value;
-	const int static	 fraction = 8;
+	int		_value;
+	const int static	 _fraction = 8;
 
 public:
 
@@ -37,18 +37,19 @@ public:
 	float toFloat( void ) const;
 	int toInt( void ) const;
 
-	bool	operator==	(const Fixed &obj ) const;
-	bool	operator>=	(const Fixed &obj ) const;
-	bool	operator<=	(const Fixed &obj ) const;
-	bool	operator!=	(const Fixed &obj ) const;
-	bool	operator< 	(const Fixed &obj ) const;
-	bool	operator> 	(const Fixed &obj ) const;
-	Fixed	operator+	(const Fixed &obj ) const;
-	Fixed	operator-	(const Fixed &obj ) const;
-	Fixed	operator*	(const Fixed &obj ) const;
-	Fixed	operator/	(const Fixed &obj ) const;
-	Fixed&	operator++	() ;
-	Fixed&	operator--	() ;
+	/* new */
+	bool	operator==	( const Fixed &obj ) const;
+	bool	operator>=	( const Fixed &obj ) const;
+	bool	operator<=	( const Fixed &obj ) const;
+	bool	operator!=	( const Fixed &obj ) const;
+	bool	operator< 	( const Fixed &obj ) const;
+	bool	operator> 	( const Fixed &obj ) const;
+	Fixed	operator+	( const Fixed &obj ) const;
+	Fixed	operator-	( const Fixed &obj ) const;
+	Fixed	operator*	( const Fixed &obj ) const;
+	Fixed	operator/	( const Fixed &obj ) const;
+	Fixed&	operator++	( void ) ;
+	Fixed&	operator--	( void ) ;
 	Fixed	operator++	( int );
 	Fixed	operator--	( int );
 

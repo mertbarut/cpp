@@ -6,14 +6,14 @@
 /*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/07 13:41:56 by mbarut            #+#    #+#             */
-/*   Updated: 2021/11/07 14:25:22 by mbarut           ###   ########.fr       */
+/*   Updated: 2021/11/17 14:24:45 by mbarut           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
-#ifndef __POINT_H__
-# define __POINT_H__
+#ifndef POINT_H
+# define POINT_H
 
 class Point {
 
