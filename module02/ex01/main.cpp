@@ -6,7 +6,7 @@
 /*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/06 17:34:02 by mbarut            #+#    #+#             */
-/*   Updated: 2021/11/06 20:12:52 by mbarut           ###   ########.fr       */
+/*   Updated: 2021/11/18 22:27:14 by mbarut           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int main( void )
 {
 	Fixed		a;
 	Fixed const	b( 10 );
-	Fixed const c( 42.42f );
+	Fixed const c( 7.75f );
 	Fixed const	d( b );
 
 	a = Fixed( 1234.4321f );

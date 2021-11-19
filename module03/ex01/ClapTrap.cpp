@@ -6,7 +6,7 @@
 /*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/07 17:52:28 by mbarut            #+#    #+#             */
-/*   Updated: 2021/11/07 23:00:08 by mbarut           ###   ########.fr       */
+/*   Updated: 2021/11/19 16:06:23 by mbarut           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,40 +23,80 @@ ClapTrap::~ClapTrap( void )
 	std::cout << "A Claptrap has disappeared!" << std::endl;
 }
 
-ClapTrap::ClapTrap(const ClapTrap &obj)
+ClapTrap::ClapTrap( const ClapTrap &obj )
 {
 	*this = obj;
-	std::cout << "Copy constructor is called!" << std::endl;
+	//std::cout << "Copy constructor is called!" << std::endl;
 }
 
 ClapTrap::ClapTrap(	std::string Name, unsigned int Hitpoints, unsigned int Energypoints, unsigned int Attackdamage )
 {
-	this->_Name = Name;
-	this->_Hitpoints = Hitpoints;
-	this->_Energypoints = Energypoints;
-	this->_Attackdamage = Attackdamage;
+	this->setName(Name);
+	this->setHitpoints(Hitpoints);
+	this->setEnergypoints(Energypoints);
+	this->setAttackdamage(Attackdamage);
 	std::cout << "Custom constructor is called!" << std::endl;
 }
 
 ClapTrap& ClapTrap::operator= ( const ClapTrap &obj )
 {
 	if (this != &obj)
-		*this = ClapTrap(obj._Name, obj._Hitpoints, obj._Energypoints, obj._Attackdamage);
-	std::cout << "Assignment operator overload attempted!" << std::endl;
+		*this = ClapTrap(obj.getName(), obj.getHitpoints(), obj.getEnergypoints(), obj.getAttackdamage());
+	//std::cout << "Assignment operator overload attempted!" << std::endl;
 	return (*this);
 }
 
-void ClapTrap::attack( std::string const &target)
+std::string		ClapTrap::getName( void ) const
 {
-	std::cout << "Claptrap " << this->_Name << " attack " << target << ", causing " << this->_Attackdamage << " points of damage!" << std::endl;
+	return this->_Name;
 }
 
-void ClapTrap::takeDamage(unsigned int amount)
+unsigned int	ClapTrap::getHitpoints( void ) const
 {
-	std::cout << "Claptrap " << this->_Name << " has taken " << amount << " points of damage!" << std::endl;
+	return this->_Hitpoints;
 }
 
-void ClapTrap::beRepaired(unsigned int amount)
+unsigned int	ClapTrap::getEnergypoints( void ) const
 {
-	std::cout << "Claptrap " << this->_Name << " has repaired " << amount << " points of damage!" << std::endl;
+	return this->_Energypoints;
+}
+
+unsigned int	ClapTrap::getAttackdamage( void ) const
+{
+	return this->_Attackdamage;
+}
+
+void			ClapTrap::setName( std::string Name )
+{
+	this->_Name = Name;
+}
+
+void			ClapTrap::setHitpoints( unsigned int Hitpoints )
+{
+	this->_Hitpoints = Hitpoints;
+}
+
+void			ClapTrap::setEnergypoints( unsigned int Energypoints )
+{
+	this->_Energypoints = Energypoints;
+}
+
+void			ClapTrap::setAttackdamage( unsigned int Attackdamage )
+{
+	this->_Attackdamage = Attackdamage;
+}
+
+void ClapTrap::attack( std::string const &target )
+{
+	std::cout << "Claptrap " << this->getName() << RED " attack " RESET << target << ", causing " << this->getAttackdamage() << " points of damage!" << std::endl;
+}
+
+void ClapTrap::takeDamage( unsigned int amount )
+{
+	std::cout << "Claptrap " << this->getName() << " has taken " << amount << " points of damage!" << std::endl;
+}
+
+void ClapTrap::beRepaired( unsigned int amount )
+{
+	std::cout << "Claptrap " << this->getName() << " has " << GREEN "repaired " RESET << amount << " points of damage!" << std::endl;
 }
