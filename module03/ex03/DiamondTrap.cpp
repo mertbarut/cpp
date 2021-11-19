@@ -6,7 +6,7 @@
 /*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/07 21:34:03 by mbarut            #+#    #+#             */
-/*   Updated: 2021/11/19 18:25:06 by mbarut           ###   ########.fr       */
+/*   Updated: 2021/11/19 18:43:06 by mbarut           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,8 @@ DiamondTrap::DiamondTrap( void )
 	FragTrap frag_for_reference;
 	ScavTrap scav_for_reference;
 
-	std::cout << "TEST: " << scav_for_reference.getEnergypoints() << std::endl;
-	
 	this->setName("NULL");
-	this->setName(this->getName().append("_clap_name"));
+	this->ClapTrap::setName(this->getName().append("_clap_name"));
 	this->setHitpoints(frag_for_reference.getHitpoints());
 	this->setEnergypoints(scav_for_reference.getEnergypoints());
 	this->setAttackdamage(frag_for_reference.getAttackdamage());
@@ -42,6 +40,8 @@ DiamondTrap::DiamondTrap( const DiamondTrap &obj )
 
 DiamondTrap::DiamondTrap( std::string Name )
 {
+	std::cout << "Custom constructor for DiamondTrap is called!" << std::endl;
+
 	FragTrap frag_for_reference;
 	ScavTrap scav_for_reference;
 
@@ -50,8 +50,6 @@ DiamondTrap::DiamondTrap( std::string Name )
 	this->setHitpoints(frag_for_reference.getHitpoints());
 	this->setEnergypoints(scav_for_reference.getEnergypoints());
 	this->setAttackdamage(frag_for_reference.getAttackdamage());
-	this->setName(Name);
-	std::cout << "Custom constructor for DiamondTrap is called!" << std::endl;
 }
 
 DiamondTrap& DiamondTrap::operator= ( const DiamondTrap &obj )
