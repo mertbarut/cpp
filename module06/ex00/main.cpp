@@ -6,13 +6,15 @@
 /*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/15 13:19:31 by mbarut            #+#    #+#             */
-/*   Updated: 2021/11/15 15:53:20 by mbarut           ###   ########.fr       */
+/*   Updated: 2021/11/20 18:48:03 by mbarut           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <cctype>
 #include <iostream>
 #include <iomanip>
 #include <string>
+#include <limits>
 
 int main(int argc, char **argv)
 {
@@ -26,8 +28,7 @@ int main(int argc, char **argv)
 
 		double inf = std::numeric_limits<double>::infinity();
 		float inff = std::numeric_limits<float>::infinity();
-		
-		//std::cout << "TEST: " << str << std::endl;
+
 		if (!str.compare("-inf"))
 		{
 			std::cout << "char: impossible" << std::endl;
@@ -76,20 +77,20 @@ int main(int argc, char **argv)
 			std::cout << "double: nan" << std::endl;
 			return (0);
 		}
-		char c = static_cast<char>(((char *)ptr)[0]);
-		if (!isupper(c) && !islower(c))
+		unsigned char c = (unsigned char)(std::atoi((char *)ptr));
+		if (!std::isprint(c))
 			std::cout << "char = Non displayable" << std::endl;
 		else
-			std::cout << "char = " << c << std::endl;
+			std::cout << "char = \'" << c << "\'" << std::endl;
 
-		int i = static_cast<int>(std::atoi((char *)ptr));		
+		int i = std::atoi((char *)ptr);		
 		std::cout << "int = " << i << std::endl;
 
-		float f = static_cast<float>(std::atof((char *)(ptr)));
+		float f = std::atof((char *)(ptr));
 		std::cout << std::fixed << std::setprecision(1);
 		std::cout << "float = " << f << "f" << std::endl;
 
-		double d = static_cast<double>((float)std::atof((char *)(ptr)));
+		double d = (double)std::atof((char *)(ptr));
 		std::cout << std::fixed << std::setprecision(1);
 		std::cout << "double = " << d << std::endl;
 
