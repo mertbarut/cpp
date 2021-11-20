@@ -6,7 +6,7 @@
 /*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/07 21:16:03 by mbarut            #+#    #+#             */
-/*   Updated: 2021/11/19 17:22:49 by mbarut           ###   ########.fr       */
+/*   Updated: 2021/11/20 16:59:54 by mbarut           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,6 @@ public:
 	FragTrap( std::string Name );
 
 	void			attack( std::string const &target );
-	void			takeDamage( unsigned int amount );
-	void			beRepaired( unsigned int amount );
 
 	void			highFivesGuys(void);
 

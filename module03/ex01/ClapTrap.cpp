@@ -6,14 +6,14 @@
 /*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/07 17:52:28 by mbarut            #+#    #+#             */
-/*   Updated: 2021/11/19 16:06:23 by mbarut           ###   ########.fr       */
+/*   Updated: 2021/11/19 18:52:05 by mbarut           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 #include <iostream>
 
-ClapTrap::ClapTrap( void ) : _Name("NULL"), _Hitpoints(0), _Energypoints(0), _Attackdamage(0)
+ClapTrap::ClapTrap( void ) : _Name("NULL"), _Hitpoints(10), _Energypoints(10), _Attackdamage(0)
 {
 	std::cout << "A Claptrap has appeared!" << std::endl;
 }

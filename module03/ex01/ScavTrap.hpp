@@ -6,7 +6,7 @@
 /*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/07 19:03:04 by mbarut            #+#    #+#             */
-/*   Updated: 2021/11/19 17:36:22 by mbarut           ###   ########.fr       */
+/*   Updated: 2021/11/20 16:39:34 by mbarut           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,6 @@ public:
 	ScavTrap( std::string Name );
 	
 	void			attack( std::string const &target );
-	void			takeDamage( unsigned int amount );
-	void			beRepaired( unsigned int amount );
 
 	void			guardGate(void);
 

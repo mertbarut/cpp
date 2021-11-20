@@ -6,7 +6,7 @@
 /*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/07 21:16:01 by mbarut            #+#    #+#             */
-/*   Updated: 2021/11/19 17:22:24 by mbarut           ###   ########.fr       */
+/*   Updated: 2021/11/20 16:59:59 by mbarut           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,16 +58,6 @@ FragTrap& FragTrap::operator= ( const FragTrap &obj )
 void FragTrap::attack( std::string const &target )
 {
 	std::cout << "Fragtrap " << this->getName() << RED " attack " RESET << target << ", causing " << this->getAttackdamage() << " points of damage!" << std::endl;
-}
-
-void FragTrap::takeDamage( unsigned int amount )
-{
-	std::cout << "Fragtrap " << this->getName() << " has taken " << amount << " points of damage!" << std::endl;
-}
-
-void FragTrap::beRepaired( unsigned int amount )
-{
-	std::cout << "Fragtrap " << this->getName() << " has " << GREEN "repaired " RESET << amount << " points of damage!" << std::endl;
 }
 
 void	FragTrap::highFivesGuys(void)

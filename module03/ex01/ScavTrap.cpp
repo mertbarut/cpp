@@ -6,7 +6,7 @@
 /*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/07 19:03:07 by mbarut            #+#    #+#             */
-/*   Updated: 2021/11/19 17:18:45 by mbarut           ###   ########.fr       */
+/*   Updated: 2021/11/20 16:39:17 by mbarut           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,16 +58,6 @@ ScavTrap& ScavTrap::operator= ( const ScavTrap &obj )
 void ScavTrap::attack( std::string const &target )
 {
 	std::cout << "Scavtrap " << this->getName() << RED " attack " RESET << target << ", causing " << this->getAttackdamage() << " points of damage!" << std::endl;
-}
-
-void ScavTrap::takeDamage( unsigned int amount )
-{
-	std::cout << "Scavtrap " << this->getName() << " has taken " << amount << " points of damage!" << std::endl;
-}
-
-void ScavTrap::beRepaired( unsigned int amount )
-{
-	std::cout << "Scavtrap " << this->getName() << " has " << GREEN "repaired " RESET << amount << " points of damage!" << std::endl;
 }
 
 void	ScavTrap::guardGate()
