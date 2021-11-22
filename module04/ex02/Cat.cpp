@@ -6,38 +6,40 @@
 /*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 15:39:24 by mbarut            #+#    #+#             */
-/*   Updated: 2021/11/08 21:10:02 by mbarut           ###   ########.fr       */
+/*   Updated: 2021/11/22 20:03:03 by mbarut           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.hpp"
 #include "Cat.hpp"
-#include "Brain.hpp"
 #include <string>
 #include <iostream>
 
 Cat::Cat( void )
 {
-	Animal::type = "Felis catus";
+	this->setType( "Felis catus" );
+	this->setBrain( new Brain );
 	std::cout << "A Cat has appeared!" << std::endl;
-	Cat::brain = new Brain;
 }
 
 Cat::~Cat( void )
 {
-	std::cout << "An Cat has disappeared!" << std::endl;
-	delete brain;
+	delete this->getBrain();
+	std::cout << "A Cat has disappeared!" << std::endl;
 }
 
 Cat::Cat(const Cat &obj)
 {
-	*this = obj;
+	this->setType(obj.getType());
+	this->setBrain( new Brain );
+	for (int i = 0; i < 100; i++)
+		this->getBrain()->setIdea(i, obj.getBrain()->getIdea(i));
 	std::cout << "Copy constructor for class Cat is called!" << std::endl;
 }
 
-Cat::Cat(	std::string typeName )
+Cat::Cat( std::string type )
 {
-	this->type = typeName;
+	this->setType( type );
 	std::cout << "Custom constructor for class Cat is called!" << std::endl;
 }
 
@@ -45,9 +47,11 @@ Cat& Cat::operator= ( const Cat &obj )
 {
 	if (this != &obj)
 	{
-		this->type = obj.type;
-		this->brain = new Brain(*obj.brain);
-	}
+		this->setType(obj.getType());
+		this->setBrain( new Brain );
+		for (int i = 0; i < 100; i++)
+			this->getBrain()->setIdea(i, obj.getBrain()->getIdea(i));
+	}	
 	std::cout << "Assignment operator overload for class Cat is used!" << std::endl;
 	return (*this);
 }
@@ -57,7 +61,12 @@ void Cat::makeSound( void ) const
 	std::cout << " * MEOW * " << std::endl;
 }
 
-std::string Cat::getType( void ) const
+Brain*	Cat::getBrain( void ) const
 {
-	return (this->type);
+	return this->_brain;
+}
+
+void	Cat::setBrain( Brain* brain )
+{
+	this->_brain = brain;
 }

@@ -6,7 +6,7 @@
 /*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 15:39:24 by mbarut            #+#    #+#             */
-/*   Updated: 2021/11/08 16:48:13 by mbarut           ###   ########.fr       */
+/*   Updated: 2021/11/22 17:08:37 by mbarut           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,13 @@
 
 Cat::Cat( void )
 {
-	Animal::type = "Felis catus";
+	this->setType( "Felis catus" );
 	std::cout << "A Cat has appeared!" << std::endl;
 }
 
 Cat::~Cat( void )
 {
-	std::cout << "An Cat has disappeared!" << std::endl;
+	std::cout << "A Cat has disappeared!" << std::endl;
 }
 
 Cat::Cat(const Cat &obj)
@@ -32,16 +32,16 @@ Cat::Cat(const Cat &obj)
 	std::cout << "Copy constructor for class Cat is called!" << std::endl;
 }
 
-Cat::Cat(	std::string typeName )
+Cat::Cat( std::string type )
 {
-	this->type = typeName;
+	this->setType( type );
 	std::cout << "Custom constructor for class Cat is called!" << std::endl;
 }
 
 Cat& Cat::operator= ( const Cat &obj )
 {
 	if (this != &obj)
-		*this = Cat(obj.type);
+		this->setType(obj.getType());
 	std::cout << "Assignment operator overload for class Cat is used!" << std::endl;
 	return (*this);
 }
@@ -49,9 +49,4 @@ Cat& Cat::operator= ( const Cat &obj )
 void Cat::makeSound( void ) const
 {
 	std::cout << " * MEOW * " << std::endl;
-}
-
-std::string Cat::getType( void ) const
-{
-	return (this->type);
 }

@@ -6,7 +6,7 @@
 /*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/09 14:48:40 by mbarut            #+#    #+#             */
-/*   Updated: 2021/11/09 21:30:14 by mbarut           ###   ########.fr       */
+/*   Updated: 2021/11/22 20:36:06 by mbarut           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 Cure::Cure( void )
 {
-	this->_type = "cure";
+	this->setType( "cure" );
 	std::cout << "A Cure has appeared!" << std::endl;
 }
 
@@ -36,7 +36,7 @@ Cure::Cure(const Cure &obj)
 Cure& Cure::operator= ( const Cure &obj )
 {
 	if (this != &obj)
-		this->_type = obj._type;
+		this->setType(obj.getType());
 	std::cout << "Assignment operator overload for class Animal is used!" << std::endl;
 	return (*this);
 }
@@ -46,12 +46,17 @@ std::string	const & Cure::getType(void) const
 	return (this->_type);
 }
 
+void		Cure::setType( std::string type )
+{
+	this->_type = type;
+}
+
 Cure* Cure::clone() const
 {
 	return (new Cure( *this ));
 }
 
-void Cure::use(ICharacter& target)
+void Cure::use( ICharacter& target )
 {
 	std::cout << "* heals " << target.getName() << "'s wounds *" << std::endl;
 }

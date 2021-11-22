@@ -6,7 +6,7 @@
 /*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/09 19:59:16 by mbarut            #+#    #+#             */
-/*   Updated: 2021/11/09 22:58:05 by mbarut           ###   ########.fr       */
+/*   Updated: 2021/11/22 21:43:02 by mbarut           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@
 MateriaSource::MateriaSource()
 {
 	for (int i = 0; i < 4; i++)
-		this->_status[i] = status::unused;
-	this->_count = 0;
+		this->setSlotStatus(i, status::unused);
+	this->setCount(0);
 	std::cout << "A Materia Source has appeared!" << std::endl;
 }
 
@@ -34,10 +34,11 @@ MateriaSource::~MateriaSource()
 
 MateriaSource::MateriaSource( MateriaSource const &obj )
 {
+	this->setCount(obj.getCount());
 	for (int i = 0; i < 4; i++)
-		this->_status[i] = status::unused;
-	this->_count = 0;
-	*this = obj;
+		this->setSlotStatus(i, obj.getSlotStatus(i));
+	for (int i = 0; i < 4; i++)
+		this->setMateria(i, obj.getMateria(i)->clone());
 	std::cout << "Copy constructor for class Materia Source is called!" << std::endl;
 }
 
@@ -45,12 +46,12 @@ MateriaSource& MateriaSource::operator= ( MateriaSource const &obj )
 {
 	if (this != &obj)
 	{
+		this->setCount(obj.getCount());
 		for (int i = 0; i < 4; i++)
 		{
-			this->_status[i] = obj._status[i];
-			if (obj._status[i] == status::used)
-				this->_inventory[i] = obj._inventory[i]->clone();
-			this->_count = obj._count;
+			this->setSlotStatus(i, obj.getSlotStatus(i));
+			if (obj.getSlotStatus(i) == status::used)
+				this->setMateria(i, obj.getMateria(i)->clone());
 		}
 	}
 	std::cout << "Assignment operator overload for class Materia Source is called!" << std::endl;
@@ -59,11 +60,11 @@ MateriaSource& MateriaSource::operator= ( MateriaSource const &obj )
 
 void MateriaSource::learnMateria( AMateria* m )
 {
-	if (this->_count < 4)
+	if (this->getCount() < 4)
 	{
-		_status[this->_count] = status::used;
-		_inventory[this->_count] = m->clone();
-		this->_count++;
+		this->setSlotStatus(this->getCount(), status::used);
+		this->setMateria(this->getCount(), m->clone());
+		this->setCount(this->getCount() + 1);
 	}
 }
 
@@ -71,8 +72,53 @@ AMateria* MateriaSource::createMateria( std::string const &type )
 {
 	for (int i = 0; i < 4; i++)
 	{
-		if (this->_inventory[i]->getType() == type)
-			return (this->_inventory[i]->clone());
+		if (this->getMateria(i)->getType() == type)
+			return (this->getMateria(i)->clone());
 	}
 	return (0);
+}
+
+AMateria*	MateriaSource::getMateria( int index ) const
+{
+	if (index <= 3 && index >= 0)
+		return this->_inventory[index];
+	else
+		return NULL;
+}
+
+int			MateriaSource::getSlotStatus( int index ) const
+{
+	if (index <= 3 && index >= 0)
+		return this->_status[index];
+	else
+		return -1;
+}
+
+int			MateriaSource::getCount() const
+{
+	return this->_count;
+}
+
+void		MateriaSource::setMateria( int index, AMateria* materia )
+{
+	if (index <= 3 && index >= 0)
+		this->_inventory[index] = materia;
+	else
+		std::cout << "Given index is out of bounds" << std::endl;
+}
+
+void		MateriaSource::setSlotStatus( int index, int status )
+{
+	if (index <= 3 && index >= 0)
+		this->_status[index] = status;
+	else
+		std::cout << "Given index is out of bounds" << std::endl;
+}
+
+void		MateriaSource::setCount( int count )
+{
+	if (count <= 4 && count >= 0)
+		this->_count = count;
+	else
+		std::cout << "Given count is out of bounds" << std::endl;
 }

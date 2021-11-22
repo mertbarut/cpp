@@ -6,7 +6,7 @@
 /*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/09 14:45:08 by mbarut            #+#    #+#             */
-/*   Updated: 2021/11/09 21:29:08 by mbarut           ###   ########.fr       */
+/*   Updated: 2021/11/22 20:36:12 by mbarut           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,11 @@ public:
 	Ice( const Ice &obj );
 	Ice& operator= ( const Ice &obj );
 
-	std::string	const & getType(void) const;
+	std::string	const &getType(void) const;
+	void		setType( std::string type );
 
 	AMateria* clone() const;
-	void use(ICharacter& target);
+	void use( ICharacter& target );
 
 };
 

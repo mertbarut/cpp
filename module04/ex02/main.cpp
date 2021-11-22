@@ -6,7 +6,7 @@
 /*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 15:35:57 by mbarut            #+#    #+#             */
-/*   Updated: 2021/11/09 14:28:24 by mbarut           ###   ########.fr       */
+/*   Updated: 2021/11/22 20:10:59 by mbarut           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,16 +20,16 @@ int main(void)
 {
 	const Animal *animals[10];
 	
-	for (int i = 0; i < 9; i++)
+	for (int i = 0; i < 10; i++)
 	{
 		if (i % 2)
-			animals[i] = new Cat();
+			animals[i] = new Cat;
 		else
-			animals[i] = new Dog();
+			animals[i] = new Dog;
 	}
-	for (int i = 0; i < 9; i++)
+	for (int i = 0; i < 10; i++)
 		animals[i]->makeSound();
-	for (int i = 0; i < 9; i++)
+	for (int i = 0; i < 10; i++)
 		delete animals[i];
 
 	//const Animal cantexist;

@@ -6,12 +6,12 @@
 /*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 15:36:00 by mbarut            #+#    #+#             */
-/*   Updated: 2021/11/08 21:16:12 by mbarut           ###   ########.fr       */
+/*   Updated: 2021/11/22 19:49:19 by mbarut           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef __DOG_H__
-# define __DOG_H__
+#ifndef DOG_H
+# define DOG_H
 
 #include "Animal.hpp"
 #include "Brain.hpp"
@@ -21,18 +21,20 @@ class Dog: public Animal {
 
 private:
 
-	const Brain* brain;
+	Brain	*_brain;
 
 public:
 
 	Dog( void );
 	virtual ~Dog( void );
 	Dog( const Dog &obj );
-	Dog( std::string typeName );
+	Dog( std::string type );
 	Dog& operator= ( const Dog &obj );
 
+	Brain	*getBrain( void ) const;
+	void	setBrain( Brain* brain );
+
 	void			makeSound(void) const;
-	std::string		getType(void) const;
 
 };
 

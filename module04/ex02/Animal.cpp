@@ -6,7 +6,7 @@
 /*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 15:39:20 by mbarut            #+#    #+#             */
-/*   Updated: 2021/11/09 14:27:22 by mbarut           ###   ########.fr       */
+/*   Updated: 2021/11/22 17:09:08 by mbarut           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <string>
 #include <iostream>
 
-Animal::Animal( void ) : type("NULL")
+Animal::Animal( void ) : _type("NULL")
 {
 	std::cout << "An Animal has appeared!" << std::endl;
 }
@@ -32,24 +32,29 @@ Animal::Animal(const Animal &obj)
 
 Animal::Animal(	std::string typeName )
 {
-	this->type = typeName;
+	this->_type = typeName;
 	std::cout << "Custom constructor for class Animal is called!" << std::endl;
 }
 
 Animal& Animal::operator= ( const Animal &obj )
 {
 	if (this != &obj)
-		this->type = obj.type;
+		this->setType(obj.getType());
 	std::cout << "Assignment operator overload for class Animal is used!" << std::endl;
 	return (*this);
 }
 
 void Animal::makeSound( void ) const
 {
-	//std::cout << " * UNSPECIFIED ANIMAL SOUND * " << std::endl;
+	std::cout << " * UNSPECIFIED ANIMAL SOUND * " << std::endl;
 }
 
 std::string Animal::getType( void ) const
 {
-	return (this->type);
+	return this->_type;
+}
+
+void		Animal::setType( std::string type )
+{
+	this->_type = type;
 }

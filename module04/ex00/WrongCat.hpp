@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef __WRONGCAT_H__
-# define __WRONGCAT_H__
+#ifndef WRONGCAT_H
+# define WRONGCAT_H
 
 #include "WrongAnimal.hpp"
 #include <string>
@@ -27,7 +27,6 @@ public:
 	WrongCat& operator= ( const WrongCat &obj );
 
 	virtual void	makeSound(void) const;
-	std::string		getType(void) const;
 
 };
 

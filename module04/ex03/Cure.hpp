@@ -6,7 +6,7 @@
 /*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/09 14:45:08 by mbarut            #+#    #+#             */
-/*   Updated: 2021/11/09 21:28:38 by mbarut           ###   ########.fr       */
+/*   Updated: 2021/11/22 20:36:23 by mbarut           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,10 @@ public:
 	Cure& operator= ( const Cure &obj );
 
 	std::string	const & getType(void) const;
+	void		setType( std::string type );
 
 	Cure* clone() const;
-	virtual void use(ICharacter& target);
+	virtual void use( ICharacter& target );
 
 };
 

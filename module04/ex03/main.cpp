@@ -6,7 +6,7 @@
 /*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/09 15:57:08 by mbarut            #+#    #+#             */
-/*   Updated: 2021/11/10 03:23:18 by mbarut           ###   ########.fr       */
+/*   Updated: 2021/11/22 21:53:50 by mbarut           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,26 +22,33 @@
 
 int main(void)
 {
-	IMateriaSource* src = new MateriaSource();
-	src->learnMateria(new Ice());
-	src->learnMateria(new Cure());
+	IMateriaSource* src = new MateriaSource;
+	AMateria *ice = new Ice;
+	AMateria *cure = new Cure;
+	src->learnMateria(ice);
+	src->learnMateria(cure);
 
-	ICharacter* me = new Character("me");
+	ICharacter* I = new Character("I");
 
-	AMateria* tmp;
-	tmp = src->createMateria("ice");
-	me->equip(tmp);
-	tmp = src->createMateria("cure");
-	me->equip(tmp);
+	AMateria* tmp1;
+	AMateria* tmp2;
+	tmp1 = src->createMateria("ice");
+	I->equip(tmp1);
+	tmp2 = src->createMateria("cure");
+	I->equip(tmp2);
 	
 	ICharacter* bob = new Character("bob");
 
-	me->use(0, *bob);
-	me->use(1, *bob);
+	I->use(0, *bob);
+	I->use(1, *bob);
 
 	delete bob;
-	delete me;
+	delete I;
 	delete src;
+	delete ice;
+	delete cure;
+	delete tmp1;
+	delete tmp2;
 
 	return 0;
 }

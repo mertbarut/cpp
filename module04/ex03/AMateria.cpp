@@ -6,7 +6,7 @@
 /*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/09 14:48:40 by mbarut            #+#    #+#             */
-/*   Updated: 2021/11/09 21:19:17 by mbarut           ###   ########.fr       */
+/*   Updated: 2021/11/22 21:55:09 by mbarut           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 AMateria::AMateria( void )
 {
-	this->_type = "NULL";
+	this->setType("NULL");
 	std::cout << "An AMateria has appeared!" << std::endl;
 }
 
@@ -33,14 +33,14 @@ AMateria::AMateria(const AMateria &obj)
 
 AMateria::AMateria(	std::string const &type )
 {
-	this->_type = type;
+	this->setType( type );
 	std::cout << "Custom constructor for class AMateria is called!" << std::endl;
 }
 
 AMateria& AMateria::operator= ( const AMateria &obj )
 {
 	if (this != &obj)
-		this->_type = obj._type;
+		this->setType(obj.getType());
 	std::cout << "Assignment operator overload for class Animal is used!" << std::endl;
 	return (*this);
 }
@@ -48,6 +48,11 @@ AMateria& AMateria::operator= ( const AMateria &obj )
 std::string	const &AMateria::getType(void) const
 {
 	return (this->_type);
+}
+
+void		AMateria::setType( std::string type )
+{
+	this->_type = type;
 }
 
 void AMateria::use(ICharacter& target)

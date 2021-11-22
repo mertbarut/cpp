@@ -6,12 +6,12 @@
 /*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 15:36:05 by mbarut            #+#    #+#             */
-/*   Updated: 2021/11/08 21:14:35 by mbarut           ###   ########.fr       */
+/*   Updated: 2021/11/22 16:57:41 by mbarut           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef __ANIMAL_H__
-# define __ANIMAL_H__
+#ifndef ANIMAL_H
+# define ANIMAL_H
 
 #include <string>
 
@@ -19,7 +19,7 @@ class Animal {
 	
 protected:
 
-	std::string 	type;
+	std::string 	_type;
 
 public:
 
@@ -29,8 +29,10 @@ public:
 	Animal( std::string typeName );
 	Animal& operator= ( const Animal &obj );
 
-	virtual void	makeSound(void) const;
 	std::string		getType(void) const;
+	void			setType( std::string type );
+
+	virtual void	makeSound(void) const;
 
 };
 

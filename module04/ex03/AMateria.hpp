@@ -6,14 +6,13 @@
 /*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/09 14:45:08 by mbarut            #+#    #+#             */
-/*   Updated: 2021/11/09 21:44:34 by mbarut           ###   ########.fr       */
+/*   Updated: 2021/11/22 21:55:29 by mbarut           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef AMATERIA_H
 #define AMATERIA_H
 
-#include "ICharacter.hpp"
 #include <string>
 
 class ICharacter;
@@ -32,8 +31,10 @@ public:
 	AMateria( std::string const &type );
 	AMateria& operator= ( const AMateria &obj );
 
+	void		setType( std::string type );
 	std::string	const &getType(void) const;
-	virtual AMateria* clone() const = 0; /* pure virtual member function */
+	
+	virtual AMateria* clone() const = 0;
 	virtual void use(ICharacter& target);
 
 };
