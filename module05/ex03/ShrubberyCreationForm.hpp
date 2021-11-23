@@ -6,7 +6,7 @@
 /*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/12 14:07:57 by mbarut            #+#    #+#             */
-/*   Updated: 2021/11/12 22:52:39 by mbarut           ###   ########.fr       */
+/*   Updated: 2021/11/23 13:51:35 by mbarut           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,5 @@ public:
 	void	execute(const Bureaucrat& b) const;
 
 };
-
-std::ostream& operator<< (std::ostream& out, const Form &obj );
 
 #endif

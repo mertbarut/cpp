@@ -6,7 +6,7 @@
 /*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/12 14:07:31 by mbarut            #+#    #+#             */
-/*   Updated: 2021/11/12 22:53:28 by mbarut           ###   ########.fr       */
+/*   Updated: 2021/11/23 13:51:09 by mbarut           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,13 +71,6 @@ PresidentialPardonForm& PresidentialPardonForm::operator= ( const PresidentialPa
 	}
 	std::cout << "Assignment operator overload for class Presidential Pardon Form is used!" << std::endl;
 	return (*this);
-}
-
-std::ostream& operator<< (std::ostream& out, const PresidentialPardonForm &obj )
-{
-	out << std::boolalpha;
-	out << "<" << obj.getName() << ">, Signed: " << obj.getSignedStatus() << ", Minimum Required Grade for 'Sign': " << obj.getRequiredGradeSign() << ", Minimum Required Grade for 'Execute': " << obj.getRequiredGradeExec();
-	return (out);
 }
 
 void	PresidentialPardonForm::execute(const Bureaucrat& b) const

@@ -6,7 +6,7 @@
 /*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/12 12:13:34 by mbarut            #+#    #+#             */
-/*   Updated: 2021/11/12 22:41:47 by mbarut           ###   ########.fr       */
+/*   Updated: 2021/11/23 13:50:43 by mbarut           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,7 +116,7 @@ void Form::beSigned(const Bureaucrat& b)
 		else if (b.getGrade() > this->getRequiredGradeSign())
 			throw Form::GradeTooLowException();
 		else
-			b.signForm(this);
+			b.signForm(*this);
 	}
 	catch (Form::GradeTooLowException& e)
 	{
@@ -127,7 +127,7 @@ void Form::beSigned(const Bureaucrat& b)
 std::ostream& operator<< (std::ostream& out, const Form &obj )
 {
 	out << std::boolalpha;
-	out << "<" << obj.getName() << ">, Signed: " << obj.getSignedStatus() << ", Minimum Required Grade for 'Sign': " << obj.getRequiredGradeSign() << ", Minimum Required Grade for 'Execute': " << obj.getRequiredGradeExec();
+	out << obj.getName() << ", Signed: " << obj.getSignedStatus() << ", Minimum Required Grade for 'Sign': " << obj.getRequiredGradeSign() << ", Minimum Required Grade for 'Execute': " << obj.getRequiredGradeExec();
 	return (out);
 }
 

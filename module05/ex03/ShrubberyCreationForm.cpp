@@ -72,13 +72,6 @@ ShrubberyCreationForm& ShrubberyCreationForm::operator= ( const ShrubberyCreatio
 	return (*this);
 }
 
-std::ostream& operator<< (std::ostream& out, const ShrubberyCreationForm &obj )
-{
-	out << std::boolalpha;
-	out << "<" << obj.getName() << ">, Signed: " << obj.getSignedStatus() << ", Minimum Required Grade for 'Sign': " << obj.getRequiredGradeSign() << ", Minimum Required Grade for 'Execute': " << obj.getRequiredGradeExec();
-	return (out);
-}
-
 void	ShrubberyCreationForm::execute(const Bureaucrat& b) const
 {
 	(void)b;

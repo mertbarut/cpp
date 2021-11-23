@@ -6,7 +6,7 @@
 /*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 15:39:20 by mbarut            #+#    #+#             */
-/*   Updated: 2021/11/11 18:47:51 by mbarut           ###   ########.fr       */
+/*   Updated: 2021/11/23 12:59:26 by mbarut           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ Bureaucrat::Bureaucrat(	std::string name, int grade ) : _name(name)
 		else if (grade < 1)
 			throw Bureaucrat::GradeTooHighException();
 		else
-			_grade = grade;;
+			_grade = grade;
 	}
 	catch (Bureaucrat::GradeTooLowException& e)
 	{
@@ -93,7 +93,7 @@ Bureaucrat&	Bureaucrat::operator++ ()
 {
 	try
 	{
-		if (_grade - 1 < 1)
+		if (this->getGrade() - 1 < 1)
 			throw Bureaucrat::GradeTooHighException();
 		else
 			_grade-- ;
@@ -111,7 +111,7 @@ Bureaucrat&	Bureaucrat::operator-- ()
 {
 	try
 	{
-		if (_grade + 1 > 150)
+		if (this->getGrade() + 1 > 150)
 			throw Bureaucrat::GradeTooLowException();
 		else
 			_grade++ ;
@@ -126,6 +126,16 @@ Bureaucrat&	Bureaucrat::operator-- ()
 
 std::ostream& operator<< (std::ostream& out, const Bureaucrat &obj )
 {
-	out << "<" << obj.getName() << ">, bureaucrat grade: " << obj.getGrade(); 
+	out << obj.getName() << ", bureaucrat grade: " << obj.getGrade(); 
 	return (out);
+}
+
+const char * Bureaucrat::GradeTooHighException::what () const throw ()
+{
+	return ("'GradeTooHighException': grade must be or stay as an integer between 0 and 151");
+}
+
+const char * Bureaucrat::GradeTooLowException::what () const throw ()
+{
+	return ("'GradeTooLowException': grade must be or stay as an integer between 0 and 151");
 }

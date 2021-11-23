@@ -6,7 +6,7 @@
 /*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/06 17:34:02 by mbarut            #+#    #+#             */
-/*   Updated: 2021/11/12 23:04:26 by mbarut           ###   ########.fr       */
+/*   Updated: 2021/11/23 13:47:32 by mbarut           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,15 +21,37 @@
 
 int main( void )
 {
-	Bureaucrat b0000("Johnson Johnson", 2);
-	std::cout << b0000 << std::endl;
+	std::string divider = "*******************************";
 
-	//std::cout << f0000 << std::endl;
+	Bureaucrat b0000("Johnson Johnson", 2);
+	Bureaucrat b0001("Johnson Pohnson", 62);
+	Bureaucrat b0002("Johnson Vohnson", 140);
+	std::cout << b0000 << std::endl;
+	std::cout << b0001 << std::endl;
+	std::cout << b0002 << std::endl;
+
+	std::cout << divider << std::endl;
+	
+	ShrubberyCreationForm scf00( "home" );
+	std::cout << scf00 << std::endl;
+	b0002.signForm(scf00);
+	b0001.executeForm(scf00);
+
+	std::cout << divider << std::endl;
+
+	RobotomyRequestForm rrf00( "Some poor soul" );
+	std::cout << rrf00 << std::endl;
+	b0001.signForm(rrf00);
+	b0000.executeForm(rrf00);
+
+	std::cout << divider << std::endl;
+
 	PresidentialPardonForm ppf00( "Mark Zuckerberg" );
-	b0000.signForm(&ppf00);
+	std::cout << scf00 << std::endl;
+	b0000.signForm(ppf00);
 	b0000.executeForm(ppf00);
-	//b0000.signForm(&f0000);
-	//f0000.beSigned(b0000);
+
+	std::cout << divider << std::endl;
 
 	return (0);
 }

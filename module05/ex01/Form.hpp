@@ -6,7 +6,7 @@
 /*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/12 12:13:37 by mbarut            #+#    #+#             */
-/*   Updated: 2021/11/12 14:13:31 by mbarut           ###   ########.fr       */
+/*   Updated: 2021/11/23 12:29:33 by mbarut           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,10 +48,7 @@ public:
 
 	public:
 
-		const char * what () const throw ()
-		{
-			return ("'GradeTooHighException': grade must be an integer between 0 and 151");
-		}
+		const char * what () const throw ();
 
 	};
 
@@ -60,10 +57,7 @@ public:
 
 	public:
 
-		const char * what () const throw ()
-		{
-			return ("'GradeTooLowException': grade must be an integer between 0 and 151");
-		}
+		const char * what () const throw ();
 
 	};
 

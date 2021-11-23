@@ -6,7 +6,7 @@
 /*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/12 12:13:34 by mbarut            #+#    #+#             */
-/*   Updated: 2021/11/12 13:40:47 by mbarut           ###   ########.fr       */
+/*   Updated: 2021/11/23 13:12:41 by mbarut           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,11 +107,11 @@ void Form::beSigned(const Bureaucrat& b)
 	try
 	{
 		if (getSignedStatus() == true)
-			std::cout << this->_name << "is already signed" << std::endl;
+			std::cout << this->_name << " is already signed" << std::endl;
 		else if (b.getGrade() > this->getRequiredGradeSign())
 			throw Form::GradeTooLowException();
 		else
-			b.signForm(this);
+			b.signForm(*this);
 	}
 	catch (Form::GradeTooLowException& e)
 	{
@@ -122,6 +122,16 @@ void Form::beSigned(const Bureaucrat& b)
 std::ostream& operator<< (std::ostream& out, const Form &obj )
 {
 	out << std::boolalpha;
-	out << "<" << obj.getName() << ">, Signed: " << obj.getSignedStatus() << ", Minimum Required Grade for 'Sign': " << obj.getRequiredGradeSign() << ", Minimum Required Grade for 'Execute': " << obj.getRequiredGradeExec();
+	out << obj.getName() << ", Signed: " << obj.getSignedStatus() << ", Minimum Required Grade for 'Sign': " << obj.getRequiredGradeSign() << ", Minimum Required Grade for 'Execute': " << obj.getRequiredGradeExec();
 	return (out);
+}
+
+const char * Form::GradeTooHighException::what () const throw ()
+{
+	return ("'GradeTooHighException': grade must be or stay as an integer between 0 and 151");
+}
+
+const char * Form::GradeTooLowException::what () const throw ()
+{
+	return ("'GradeTooLowException': grade must be or stay as an integer between 0 and 151, or the required lower limit of the form for the performed action");
 }

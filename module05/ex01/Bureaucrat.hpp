@@ -40,17 +40,14 @@ public:
 	std::string		getName(void) const;
 	int				getGrade(void) const;
 
-	void			signForm(Form *f) const;
+	void			signForm(Form& f) const;
 
 	class GradeTooHighException : public std::exception
 	{
 
 	public:
 
-		const char * what () const throw ()
-		{
-			return ("'GradeTooHighException': grade must be or stay as an integer between 0 and 151");
-		}
+		const char * what () const throw ();
 
 	};
 
@@ -59,10 +56,7 @@ public:
 
 	public:
 
-		const char * what () const throw ()
-		{
-			return ("'GradeTooLowException': grade must be or stay as an integer between 0 and 151");
-		}
+		const char * what () const throw ();
 
 	};
 
