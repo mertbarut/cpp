@@ -6,7 +6,7 @@
 /*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/09 17:23:54 by mbarut            #+#    #+#             */
-/*   Updated: 2021/11/22 22:02:05 by mbarut           ###   ########.fr       */
+/*   Updated: 2021/11/23 15:37:54 by mbarut           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ Character::Character( void )
 	this->setName("No one");
 	this->setCount(0);
 	for (int i = 0; i < 4; i++)
-		this->setSlotStatus(i, slot::empty);
+		this->setSlotStatus(i, empty);
 	for (int i = 0; i < 4; i++)
 		this->setMateria(i, NULL);
 	std::cout << "A Character has appeared!" << std::endl;
@@ -29,7 +29,7 @@ Character::~Character( void )
 {
 	for (int i = 0; i < 4; i++)
 	{
-		if (this->getSlotStatus(i) == slot::full)
+		if (this->getSlotStatus(i) == full)
 			delete this->getMateria(i);
 	}
 	std::cout << "A Character has disappeared!" << std::endl;
@@ -51,7 +51,7 @@ Character::Character( std::string const &name )
 	this->setName(name);
 	this->setCount(0);
 	for (int i = 0; i < 4; i++)
-		this->setSlotStatus(i, slot::empty);
+		this->setSlotStatus(i, empty);
 	for (int i = 0; i < 4; i++)
 		this->setMateria(i, NULL);
 	std::cout << "Custom constructor for class Character is called!" << std::endl;
@@ -66,7 +66,7 @@ Character& Character::operator= ( const Character &obj )
 		for (int i = 0; i < 4; i++)
 		{
 			this->setSlotStatus(i, obj.getSlotStatus(i));
-			if (obj.getSlotStatus(i) == slot::full)
+			if (obj.getSlotStatus(i) == full)
 				this->setMateria(i, obj.getMateria(i)->clone());
 		}
 	}
@@ -133,7 +133,7 @@ void  Character::equip(AMateria* materia)
 {
 	if (this->getCount() < 4)
 	{
-		this->setSlotStatus(this->getCount(), slot::full); 
+		this->setSlotStatus(this->getCount(), full); 
 		this->setMateria(this->getCount(), materia->clone());
 		this->setCount(this->getCount() + 1);
 	}
@@ -141,9 +141,9 @@ void  Character::equip(AMateria* materia)
 
 void  Character::unequip(int idx)
 {
-	if ( idx < 4 && this->getSlotStatus(idx) == slot::full )
+	if ( idx < 4 && this->getSlotStatus(idx) == full )
 	{
-		this->setSlotStatus(idx, slot::empty);
+		this->setSlotStatus(idx, empty);
 		this->setCount(this->getCount() - 1);
 	}
 }

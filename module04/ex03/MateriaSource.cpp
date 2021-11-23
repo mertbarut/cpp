@@ -6,7 +6,7 @@
 /*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/09 19:59:16 by mbarut            #+#    #+#             */
-/*   Updated: 2021/11/22 21:43:02 by mbarut           ###   ########.fr       */
+/*   Updated: 2021/11/23 15:37:00 by mbarut           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 MateriaSource::MateriaSource()
 {
 	for (int i = 0; i < 4; i++)
-		this->setSlotStatus(i, status::unused);
+		this->setSlotStatus(i, unused);
 	this->setCount(0);
 	std::cout << "A Materia Source has appeared!" << std::endl;
 }
@@ -26,7 +26,7 @@ MateriaSource::~MateriaSource()
 {
 	for (int i = 0; i < 4; i++)
 	{
-		if (this->_status[i] == status::used)
+		if (this->_status[i] == used)
 			delete this->_inventory[i];
 	}
 	std::cout << "A Materia Source has disappeared!" << std::endl;
@@ -50,7 +50,7 @@ MateriaSource& MateriaSource::operator= ( MateriaSource const &obj )
 		for (int i = 0; i < 4; i++)
 		{
 			this->setSlotStatus(i, obj.getSlotStatus(i));
-			if (obj.getSlotStatus(i) == status::used)
+			if (obj.getSlotStatus(i) == used)
 				this->setMateria(i, obj.getMateria(i)->clone());
 		}
 	}
@@ -62,7 +62,7 @@ void MateriaSource::learnMateria( AMateria* m )
 {
 	if (this->getCount() < 4)
 	{
-		this->setSlotStatus(this->getCount(), status::used);
+		this->setSlotStatus(this->getCount(), used);
 		this->setMateria(this->getCount(), m->clone());
 		this->setCount(this->getCount() + 1);
 	}
