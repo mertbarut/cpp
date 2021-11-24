@@ -6,7 +6,7 @@
 /*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/12 14:07:31 by mbarut            #+#    #+#             */
-/*   Updated: 2021/11/23 13:51:09 by mbarut           ###   ########.fr       */
+/*   Updated: 2021/11/24 13:12:33 by mbarut           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,6 @@ PresidentialPardonForm& PresidentialPardonForm::operator= ( const PresidentialPa
 
 void	PresidentialPardonForm::execute(const Bureaucrat& b) const
 {
-	(void)b;
 	try
 	{
 		if (this->getSignedStatus() == false)

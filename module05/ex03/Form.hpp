@@ -6,7 +6,7 @@
 /*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/12 12:13:37 by mbarut            #+#    #+#             */
-/*   Updated: 2021/11/12 22:52:17 by mbarut           ###   ########.fr       */
+/*   Updated: 2021/11/24 13:08:27 by mbarut           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,11 @@ class Form {
 
 private:
 
-	std::string 		_name;
+	const std::string 	_name;
 	std::string			_target;
 	bool				_signed;
-	int					_required_grade_sign;
-	int					_required_grade_exec;
+	const int			_required_grade_sign;
+	const int			_required_grade_exec;
 	Form( void );
 
 public:

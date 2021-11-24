@@ -6,7 +6,7 @@
 /*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/08 15:39:20 by mbarut            #+#    #+#             */
-/*   Updated: 2021/11/23 13:16:56 by mbarut           ###   ########.fr       */
+/*   Updated: 2021/11/24 12:37:35 by mbarut           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,8 @@ Bureaucrat::~Bureaucrat( void )
 	std::cout << "An Bureaucrat has disappeared!" << std::endl;
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat &obj)
+Bureaucrat::Bureaucrat(const Bureaucrat &obj) : _name(obj._name), _grade(obj._grade)
 {
-	*this = obj;
 	std::cout << "Copy constructor for class Bureaucrat is called!" << std::endl;
 }
 
@@ -46,10 +45,12 @@ Bureaucrat::Bureaucrat(	std::string name, int grade ) : _name(name)
 	catch (Bureaucrat::GradeTooLowException& e)
 	{
 		std::cout << "Exception caught: " << e.what() << std::endl;
+		_grade = 150;
 	}
 	catch (Bureaucrat::GradeTooHighException& e)
 	{
 		std::cout << "Exception caught: " << e.what() << std::endl;
+		_grade = 150;
 	}
 	std::cout << "Custom constructor for class Bureaucrat is called!" << std::endl;
 }
@@ -65,15 +66,17 @@ Bureaucrat& Bureaucrat::operator= ( const Bureaucrat &obj )
 			else if (obj._grade < 1)
 				throw Bureaucrat::GradeTooHighException();
 			else
-				*this = Bureaucrat(obj._name, obj._grade);
+				this->_grade = obj.getGrade();
 		}
 		catch (Bureaucrat::GradeTooLowException& e)
 		{
 			std::cout << "Exception caught: " << e.what() << std::endl;
+			_grade = 150;
 		}
 		catch (Bureaucrat::GradeTooHighException& e)
 		{
 			std::cout << "Exception caught: " << e.what() << std::endl;
+			_grade = 150;
 		}
 	}
 	std::cout << "Assignment operator overload for class Bureaucrat is used!" << std::endl;

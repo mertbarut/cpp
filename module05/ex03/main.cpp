@@ -6,7 +6,7 @@
 /*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/06 17:34:02 by mbarut            #+#    #+#             */
-/*   Updated: 2021/11/23 14:02:29 by mbarut           ###   ########.fr       */
+/*   Updated: 2021/11/24 13:22:51 by mbarut           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,9 @@ int main( void )
 	Form	*rrf;
 
 	Bureaucrat b0000("Johnson Johnson", 33);
+	
+	Intern mysteriousIntern (someRandomIntern);
+	Intern someOtherIntern = someRandomIntern;
 	
 	rrf = someRandomIntern.makeForm("robotomy request", "Bender");
 	std::cout << *rrf << std::endl;

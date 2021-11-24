@@ -6,7 +6,7 @@
 /*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/13 12:10:21 by mbarut            #+#    #+#             */
-/*   Updated: 2021/11/13 13:36:44 by mbarut           ###   ########.fr       */
+/*   Updated: 2021/11/24 13:19:17 by mbarut           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,14 +31,13 @@ Intern::~Intern( void )
 
 Intern::Intern(const Intern &obj)
 {
-	*this = obj;
+	(void)obj;
 	std::cout << "Copy constructor for class Intern is called!" << std::endl;
 }
 
 Intern& Intern::operator= ( const Intern &obj )
 {
-	if (this != &obj)
-		*this = Intern();
+	(void)obj;
 	std::cout << "Assignment operator overload for class Intern is used!" << std::endl;
 	return (*this);
 }

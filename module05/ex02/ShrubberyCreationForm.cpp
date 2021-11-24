@@ -74,7 +74,6 @@ ShrubberyCreationForm& ShrubberyCreationForm::operator= ( const ShrubberyCreatio
 
 void	ShrubberyCreationForm::execute(const Bureaucrat& b) const
 {
-	(void)b;
 	try
 	{
 		if (this->getSignedStatus() == false)

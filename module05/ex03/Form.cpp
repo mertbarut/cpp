@@ -6,7 +6,7 @@
 /*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/12 12:13:34 by mbarut            #+#    #+#             */
-/*   Updated: 2021/11/23 13:50:43 by mbarut           ###   ########.fr       */
+/*   Updated: 2021/11/24 13:06:11 by mbarut           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ Form::~Form( void )
 
 Form::Form(const Form &obj) : _name(obj._name), _signed(obj._signed), _required_grade_sign(obj._required_grade_sign), _required_grade_exec(obj._required_grade_exec)
 {
-	*this = obj;
 	std::cout << "Copy constructor for class Form is called!" << std::endl;
 }
 
@@ -62,7 +61,10 @@ Form& Form::operator= ( const Form &obj )
 			else if (obj._required_grade_sign < 1 || obj._required_grade_exec < 1)
 				throw Form::GradeTooHighException();
 			else
+			{
 				this->_target = obj._target;
+				this->_signed = obj._signed;
+			}
 		}
 		catch (Form::GradeTooLowException& e)
 		{
@@ -112,7 +114,7 @@ void Form::beSigned(const Bureaucrat& b)
 	try
 	{
 		if (getSignedStatus() == true)
-			std::cout << this->_name << "is already signed by another bureaucrat" << std::endl;
+			std::cout << this->getName() << "is already signed by another bureaucrat" << std::endl;
 		else if (b.getGrade() > this->getRequiredGradeSign())
 			throw Form::GradeTooLowException();
 		else
@@ -138,7 +140,7 @@ const char * Form::GradeTooHighException::what () const throw ()
 
 const char * Form::GradeTooLowException::what () const throw ()
 {
-	return ("'GradeTooLowException': grade must be an integer between 0 and 151");
+	return ("'GradeTooLowException': grade must be an integer between 0 and 151, or the form must be signed by a sufficient bureaucrat");
 }
 
 const char * Form::FormNotSignedException::what () const throw ()
