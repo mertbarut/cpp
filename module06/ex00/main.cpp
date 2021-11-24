@@ -6,7 +6,7 @@
 /*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/15 13:19:31 by mbarut            #+#    #+#             */
-/*   Updated: 2021/11/20 18:48:03 by mbarut           ###   ########.fr       */
+/*   Updated: 2021/11/24 18:00:15 by mbarut           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,21 @@
 #include <iomanip>
 #include <string>
 #include <limits>
+
+bool is_valid(const std::string& s)
+{
+	int dot_count = 0;
+	int f_count = 0;
+
+    std::string::const_iterator it = s.begin();
+    while (it != s.end() && (std::isdigit(*it) || (*it == 'f' && ++f_count) || (*it == '.' && ++dot_count)))
+	{
+		if (dot_count > 1 || f_count > 1)
+			break ;
+		++it;
+	}
+    return !s.empty() && it == s.end();
+}
 
 int main(int argc, char **argv)
 {
@@ -29,6 +44,7 @@ int main(int argc, char **argv)
 		double inf = std::numeric_limits<double>::infinity();
 		float inff = std::numeric_limits<float>::infinity();
 
+		/* Handle bullsh*t pseudo literals */
 		if (!str.compare("-inf"))
 		{
 			std::cout << "char: impossible" << std::endl;
@@ -77,23 +93,44 @@ int main(int argc, char **argv)
 			std::cout << "double: nan" << std::endl;
 			return (0);
 		}
-		unsigned char c = (unsigned char)(std::atoi((char *)ptr));
-		if (!std::isprint(c))
-			std::cout << "char = Non displayable" << std::endl;
+
+		if (str.length() >= 1 
+			&& (str.begin()[0] == '+' || str.begin()[0] == '-' || std::isdigit(str.begin()[0]))
+			&& (std::isdigit(str.begin()[0]) || std::isdigit(str.begin()[1]))
+			&& (is_valid(&str[1]) || is_valid(str)))
+		{
+			/* Handle char literals */
+			unsigned char c = (unsigned char)(std::atoi((char *)ptr));
+			if (!std::isprint(c))
+				std::cout << "char = Non displayable" << std::endl;
+			else
+				std::cout << "char = \'" << c << "\'" << std::endl;
+
+			/* Handle int */
+			long i = (long)std::atol((char *)ptr);
+			if (i < INT32_MAX && i > INT32_MIN)
+				std::cout << "int = " << (int)i << std::endl;
+			else
+				std::cout << "int = impossible" << std::endl;
+
+			/* Handle float */
+			float f = std::atof((char *)(ptr));
+			std::cout << std::fixed << std::setprecision(1);
+			std::cout << "float = " << f << "f" << std::endl;
+
+			/* Handle double */
+			double d = (double)std::atof((char *)(ptr));
+			std::cout << std::fixed << std::setprecision(1);
+			std::cout << "double = " << d << std::endl;
+		}
 		else
-			std::cout << "char = \'" << c << "\'" << std::endl;
-
-		int i = std::atoi((char *)ptr);		
-		std::cout << "int = " << i << std::endl;
-
-		float f = std::atof((char *)(ptr));
-		std::cout << std::fixed << std::setprecision(1);
-		std::cout << "float = " << f << "f" << std::endl;
-
-		double d = (double)std::atof((char *)(ptr));
-		std::cout << std::fixed << std::setprecision(1);
-		std::cout << "double = " << d << std::endl;
-
+		{
+			std::cout << "char: impossible" << std::endl;
+			std::cout << "int: impossible" << std::endl;
+			std::cout << "float: impossible" << std::endl;
+			std::cout << "double: impossible" << std::endl;
+			return (0);
+		}
 		return (0);
 	}
 	else
