@@ -6,7 +6,7 @@
 /*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/15 13:19:31 by mbarut            #+#    #+#             */
-/*   Updated: 2021/11/24 18:00:15 by mbarut           ###   ########.fr       */
+/*   Updated: 2021/11/25 16:56:58 by mbarut           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int main(int argc, char **argv)
 		double inf = std::numeric_limits<double>::infinity();
 		float inff = std::numeric_limits<float>::infinity();
 
-		/* Handle bullsh*t pseudo literals */
+		/* Handle pseudo literals */
 		if (!str.compare("-inf"))
 		{
 			std::cout << "char: impossible" << std::endl;

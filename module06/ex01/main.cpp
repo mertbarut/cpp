@@ -6,7 +6,7 @@
 /*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/20 19:22:47 by mbarut            #+#    #+#             */
-/*   Updated: 2021/11/20 20:26:45 by mbarut           ###   ########.fr       */
+/*   Updated: 2021/11/25 12:19:28 by mbarut           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,7 @@
 #include <iomanip>
 #include <string>
 #include <limits>
-
-typedef struct sData {
-
-	int				index;
-	std::string		name;
-	unsigned int	age;
-	float			height;
-	float			weight;
-	float			bmi;
-
-} Data;
+#include "Data.hpp"
 
 uintptr_t	serialize(Data* ptr)
 {
@@ -43,6 +33,7 @@ Data*		deserialize(uintptr_t raw)
 int main(void)
 {
 	Data instance00;
+
 	instance00.index = 0;
 	instance00.name = "John";
 	instance00.age = 29;
@@ -59,6 +50,6 @@ int main(void)
 	std::cout << "Height: " << ptr->height << std::endl;
 	std::cout << "Weight: " << ptr->weight << std::endl;
 	std::cout << "BMI: " << ptr->bmi << std::endl;
-	
+
 	return (0);
 }
