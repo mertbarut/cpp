@@ -6,31 +6,27 @@
 /*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/21 15:55:33 by mbarut            #+#    #+#             */
-/*   Updated: 2021/11/26 10:14:06 by mbarut           ###   ########.fr       */
+/*   Updated: 2021/11/26 15:15:00 by mbarut           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string>
 #include <iostream>
-#include "aFewTemplates.hpp"
+#include "Array.hpp"
 
 int main(void)
 {
-	int a = 2;
-	int b = 3;
+	Array<int>	ex00;
+	Array<int>	ex01(8);
 
-	::swap( a, b );
-	std::cout << "a = " << a << ", b = " << b << std::endl;
-	std::cout << "min( a, b ) = " << ::min( a, b ) << std::endl;
-	std::cout << "max( a, b ) = " << ::max( a, b ) << std::endl;
+	ex01[7] = 42;
+	std::cout << ex01[7] << std::endl;
 
-	std::string c = "chaine1";
-	std::string d = "chaine2";
+	Array<int> ex02 = ex01;
+	std::cout << ex02[7] << std::endl;
 
-	::swap(c, d);
-	std::cout << "c = " << c << ", d = " << d << std::endl;
-	std::cout << "min( c, d ) = " << ::min( c, d ) << std::endl;
-	std::cout << "max( c, d ) = " << ::max( c, d ) << std::endl;
+	Array<int> ex03(ex01);
+	std::cout << ex02[7] << std::endl;
 
 	return 0;
 }
