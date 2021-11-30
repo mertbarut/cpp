@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   span.hpp                                           :+:      :+:    :+:   */
+/*   Span.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/29 14:09:58 by mbarut            #+#    #+#             */
-/*   Updated: 2021/11/29 17:24:29 by mbarut           ###   ########.fr       */
+/*   Updated: 2021/11/30 16:48:59 by mbarut           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SPAN_H
 # define SPAN_H
 
-Class Span
+# include <algorithm>
+# include <vector>
+# include <exception>
+
+class Span
 {
 
 private:
 
-	Span			*_ptr;
-	int				_max;
-	int				_min;
-	unsigned int	_N;
-	unsigned int	_cap;
+	std::vector<int> *_ptr;
 
 public:
 
@@ -32,15 +32,32 @@ public:
 	Span( unsigned int N );
 	Span& operator= ( const Span &obj );
 
-	int				getMax();
-	int				getMin();
-	unsigned int	getN();
-	unsigned int	getCapacity();
+	unsigned int	getN() const; 
+	unsigned int	getCapacity() const;
 
-	void	addNumber( int number );
-	int		shortestSpan();
-	int		longestSpan();
+	void			addNumber( int number );
+	unsigned int	shortestSpan() const;
+	unsigned int	longestSpan() const;
+	void			print() const ;
 
-}
+	class OutofCapacityException : public std::exception
+	{
+
+	public:
+
+		const char * what () const throw ();
+
+	};
+
+	class InvalidSpanException : public std::exception
+	{
+
+	public:
+
+		const char * what () const throw ();
+
+	};
+
+};
 
 #endif

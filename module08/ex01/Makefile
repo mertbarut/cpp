@@ -6,13 +6,13 @@
 #    By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/21 15:55:20 by mbarut            #+#    #+#              #
-#    Updated: 2021/11/29 17:22:04 by mbarut           ###   ########.fr        #
+#    Updated: 2021/11/30 14:59:45 by mbarut           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME=span
 
-SRC=main.cpp
+SRC=Span.cpp main.cpp
 
 CC=clang++
 

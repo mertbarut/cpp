@@ -6,7 +6,7 @@
 /*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/21 16:02:58 by mbarut            #+#    #+#             */
-/*   Updated: 2021/11/26 15:18:30 by mbarut           ###   ########.fr       */
+/*   Updated: 2021/11/30 18:16:09 by mbarut           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,14 @@
 template <typename T>
 class Array
 {
+
 private:
+
 	unsigned int	_size;
 	T				*_array;
 
 public:
+
 	Array();
 	~Array();
 	Array( unsigned int n );
@@ -38,6 +41,7 @@ public:
 template <typename T>
 Array<T>::Array() : _size(0), _array(nullptr)
 {
+	this->_array = new T[0];
 	std::cout << "An Array constructor is called!" << std::endl;
 }
 
@@ -53,7 +57,8 @@ Array<T>::Array( unsigned int n )
 {
 	this->_size = n;
 	this->_array = new T[this->_size];
-
+	for (unsigned int i = 0; i < this->_size; ++i)
+		this->_array[i] = 0;
 	std::cout << "An Array constructor of size " << this->size() << " is called!" << std::endl;
 }
 
