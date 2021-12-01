@@ -5,33 +5,44 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/21 15:55:33 by mbarut            #+#    #+#             */
-/*   Updated: 2021/12/01 12:56:09 by mbarut           ###   ########.fr       */
+/*   Created: 2021/12/01 12:57:30 by mbarut            #+#    #+#             */
+/*   Updated: 2021/12/01 18:09:13 by mbarut           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string>
 #include <iostream>
-#include "iter.hpp"
+#include <iterator>
+#include <stack>
+#include "mutantstack.hpp"
 
-typedef void (*t_func)(int n);
-
-void	printLeastSignificantDigit(int n)
+int main()
 {
-	std::cout << n % 10 << " ";
-}
-
-int main(void)
-{
-	int arr[] = { 564, 4572, 459, 12, 78, 90 };
-
-	std::cout << "The least significant bits in the given array are: ";
+	MutantStack<int>	mstack;
 	
-	t_func func = &printLeastSignificantDigit;
+	mstack.push(5);
+	mstack.push(5);
+
+	std::cout << mstack.top() << std::endl;
+
+	mstack.pop();
+
+	mstack.push(3);
+	mstack.push(5);
+	mstack.push(737);
+	// Add more pushes if you would like
+	mstack.push(0);
 	
-	iter(arr, 6, func);
+	MutantStack<int>::iterator it = mstack.begin();
+	MutantStack<int>::iterator ite = mstack.end();
 
-	std::cout << std::endl;
-
+	++it;
+	--ite;
+	while (it != ite)
+	{
+		std::cout << *it << std::endl;
+		++it;
+	}
+	std::stack<int> s(mstack);
 	return 0;
+
 }

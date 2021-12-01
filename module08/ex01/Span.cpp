@@ -6,7 +6,7 @@
 /*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/29 17:03:44 by mbarut            #+#    #+#             */
-/*   Updated: 2021/11/30 16:54:35 by mbarut           ###   ########.fr       */
+/*   Updated: 2021/12/01 18:31:53 by mbarut           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,7 +132,8 @@ unsigned int	Span::longestSpan() const
 		{
 			std::vector<int> tmp = *this->_ptr;
 			std::sort(tmp.begin(), tmp.end());
-			return *tmp.end() - *tmp.begin();
+			//std::cout << *tmp.begin() << " " << *(tmp.begin() + this->getN() - 1) << std::endl;
+			return *(tmp.begin() + this->getN() - 1) - *tmp.begin();
 		}
 	}
 	catch (Span::OutofCapacityException& e)
@@ -148,4 +149,12 @@ void			Span::print() const
 	for (unsigned int i = 0; i < this->getN(); i++)
 		std::cout << this->_ptr->at(i) << " ";
 	std::cout << "]" << std::endl;
+}
+
+void			Span::addNumberRange( int number1, int number2, int gap )
+{
+	if ( number1 >= number2 || number2 - number1 <= gap )
+		return ;
+	for ( int i = number1; i <= number2; i += gap)
+		this->addNumber(i);
 }

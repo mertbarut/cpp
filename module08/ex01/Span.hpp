@@ -6,7 +6,7 @@
 /*   By: mbarut <mbarut@student.42wolfsburg.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/29 14:09:58 by mbarut            #+#    #+#             */
-/*   Updated: 2021/11/30 16:48:59 by mbarut           ###   ########.fr       */
+/*   Updated: 2021/12/01 18:19:14 by mbarut           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ public:
 	unsigned int	getCapacity() const;
 
 	void			addNumber( int number );
+	void			addNumberRange( int number1, int number2, int gap );
 	unsigned int	shortestSpan() const;
 	unsigned int	longestSpan() const;
 	void			print() const ;
